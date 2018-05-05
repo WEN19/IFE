@@ -1,0 +1,72 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  width: 100%;
+  max-width: 1100px;
+}
+.jl{
+  text-indent:20px;
+  font-size:14px;
+  color:white;
+  background-color:gray;
+  width:100%;
+}
+h1,h3{
+    margin: 0px 0;
+    padding: 20px 0;
+}
+.div2{
+    border-bottom: 1px solid #ddd;
+    overflow: hidden;
+    clear:both;
+    margin: 0 10px 0 0;
+    width: 150px;
+    line-height: 120px;
+    text-align: center;
+    font-weight: bold;
+    float: l
+    font-size: 1.2em;
+    background-color: #bbb6b6;
+}
+.div3{
+width:100%;
+border-bottom: 1px solid #ddd;
+background-color: white;
+}
+.div1{
+  width:100%;
+  clear:both  
+  float:top;
+  float:left;
+}
+.itemclass{
+	clear:both;
+	float:left;
+	margin-left:155px;
+	margin-top:-150px;
+}
+ul{
+  clear:both
+  margin:0 35px 0 10px;
+  padding: 10px 0;
+  list-style-type:none;
+  display:inline;//显示为内联元素没有换行符
+}
+li{
+  display:inline;
+  font-weight:bold;
+}
+p{
+  display:inline;
+}
+.main{
+  margin:0px;
+  padding:0px;
+  font-weight:bold;
+}
+.inform{
+  margin:0px,0px;
+  padding:0px 0px;
+  display:block;
+}

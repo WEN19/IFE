@@ -1,0 +1,20 @@
+body{
+	box-sizing:border-box; 
+	width:100%;
+	margin:0;
+	padding:0;
+}
+.container{
+	display:flex;
+	height:960px;
+}
+.left{
+	height:100%;
+	flex:3;
+	background-color: #525c68;
+}
+.right{
+	height:100%;
+	flex:7;
+	background-color: #64636b;
+}

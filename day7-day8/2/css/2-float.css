@@ -1,0 +1,19 @@
+body{
+  width:100%;
+  margin:0 auto;
+}
+.container{
+  height:960px;
+  margin:0 auto;
+  
+}
+.left{
+  height:100%;
+  width:200px;
+  background-color:red;
+}
+.right{
+  height:100%;
+  width:calc(100% - 200px);
+  background-color:blue;
+}

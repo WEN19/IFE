@@ -1,0 +1,25 @@
+
+body{
+	box-sizing:border-box; 
+	width:100%;
+	margin:0 0 0 0;
+}
+.container{
+	position:relative;
+	height: 960px;
+    margin: 0 auto;
+}
+.left{
+	position:absolute;
+	height:100%;
+	width:30%;
+	background-color: #525c68;
+}
+.right{
+	position:absolute;
+	height:100%;
+	width:70%;
+	top:0px;
+	right:0px;
+	background-color: #64636b;
+}

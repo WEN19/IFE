@@ -1,0 +1,29 @@
+h1,h3{
+    margin: 10px 0;
+    padding: 10px 0;
+}
+ul{
+  margin: 10px 0;
+  padding: 10px 0;
+  list-style-type:none;
+  display:inline;
+}
+li{
+  display:inline;
+  font-weight:bold;
+}
+p{
+  display:inline;
+  padding:10px;
+  margin:0px 0px 0px -20px;
+}
+.main{
+  margin:0px;
+  padding:0px;
+  font-weight:bold;
+}
+.inform{
+  margin:0px;
+  padding:10px 0px 10px 0px;
+  display:block;
+}
