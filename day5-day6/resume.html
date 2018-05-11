@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <HTML>
     <head>
-<link rel="stylesheet" type="text/css" href="style_2.css" />
+<link rel="stylesheet" id="css" type="text/css" href="style_1.css" />
 	</head>
   <div class="jl">
     <h1>简历</h1>
@@ -96,5 +96,19 @@
 		  </div>
           <ul>
       </div>
+	      	  <script>
+	  document.getElementById("one").onclick = function() {
+		var stylelink=document.getElementById('css');
+		stylelink.href='style_1.css';
+	  }
+	  	  document.getElementById("two").onclick = function() {
+		var stylelink=document.getElementById('css');
+		stylelink.href='style_2.css';
+	  }
+	  	  document.getElementById("three").onclick = function() {
+		var stylelink=document.getElementById('css');
+		stylelink.href='style_3.css';
+	  }
+	  </script>
   </BODY>
   </HTML>
