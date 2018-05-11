@@ -1,0 +1,798 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<style type="text/css">
+html,body{
+	font:14px 'Nova',sans-serif;
+	height:100%;
+}
+ul li{
+	list-style:none;
+}
+u{
+	text-decoration:none;
+}
+*{
+	margin:0px;
+	padding:0px;
+}
+.left{
+	position:absolute;
+	left:0px;
+	top:0px;
+	height:100%;
+	width:100px;
+	overflow:hidden;
+	z-index:100;
+}
+.left-main{
+	height:100%;
+	width:119px;
+	background-color:#1d2530;
+	overflow-y:scroll;
+	overflow-x:hidden;
+}
+.left-top{
+	position:fixed;
+	top:0px;
+	left:0px;
+}
+.left-top li{
+	width:60px;
+	height:60px;
+	margin:20px;
+}
+.left-bottom{
+	position:absolute;
+	bottom:0px;
+	left:14px;
+}
+.left-bottom li{
+	width:16px;
+	height:16px;
+	margin:10px;
+}
+.left-bottom li:first-of-type{
+	float:left;
+}
+.left-bottom li:last-of-type{
+	float:right;
+}
+.menu{
+	position:absolute;
+	width:250px;
+	top:0px;
+	left:100px;
+	height:100%;
+	overflow:hidden;
+	z-index:100;
+}
+.menu-main{
+	height:100%;
+	width:268px;
+	overflow-y:scroll;
+	overflow-x:hidden;
+	background-color:#212c3b;
+}
+.MENU{
+	margin-top:30px;
+	padding-right:30px;
+}
+.MENU li{
+	height:24px;
+	margin-bottom:12px;
+	line-height:24px;
+}
+.MENU li span:first-of-type{
+	float:left;
+	margin-left:30px;
+}
+.MENU li:last-of-type{
+	margin-bottom:24px;
+}
+.menuicon1{
+	float:right;
+}
+.radius{
+	float:right;
+	height:24px;
+	width:30px;
+	text-align:center;
+	color:white;
+	border-radius:8px 8px;
+	background-color:#3399ff;
+}
+.PRODUCTS{
+	margin-top:24px;
+	padding-right:30px;
+}
+.PRODUCTS li{
+	height:24px;
+	margin-bottom:12px;
+	line-height:24px;
+}
+.PRODUCTS li u{
+	width:24px;
+	height:24px;
+	margin-left:30px;
+}
+
+.PRODUCTS li span{
+	margin-left:2px;
+}
+.PRODUCTS .YOUR-PRODUCTS{
+	margin-left:30px;
+}
+.menuicon2{
+	float:right;
+}
+.PRODUCTS li:last-of-type{
+	margin-bottom:24px;
+}
+.line1{
+	width:200px;
+	height:1px;
+	margin:0 auto;
+	background-color:#2A3546;
+}
+.line2{
+	width:200px;
+	height:1px;
+	margin:0 auto;
+	background-color:#2A3546;
+}
+.DASHBOARD {
+	margin-top:30px;
+	padding-right:30px;
+}
+.DASHBOARD  li{
+	height:24px;
+	margin-bottom:12px;
+	line-height:24px;
+}
+.DASHBOARD  li span:first-of-type{
+	float:left;
+	margin-left:30px;
+}
+.DASHBOARD  li:last-of-type{
+	margin-bottom:24px;
+}
+.menuicon3{
+	float:right;
+}
+.menubottom{
+	margin-top:20px;
+	padding-right:30px;
+}
+.menubottom li{
+	height:24px;
+		line-height:24px;
+}
+.menubottom .Money{
+	float:right;
+}
+.menubottom .Monthly{
+	margin-left:30px;
+	float:left;
+}
+.leftmessage{
+	width:400px;
+	height:100%;
+	left:350px;
+	top:0px;
+	position:absolute;
+}
+.leftmessage-top{
+	height:80px;
+	line-height:80px;
+	width:100%;
+	position:absolute;
+	top:0px;
+	font-size:24px;
+	z-index:100;
+	background-color:white;
+}
+.leftmessage-top span{
+	margin-left:20px;
+}
+.leftmessage-search{
+	position:absolute;
+	top:80px;
+	left:0px;
+	height:79px;
+	width:100%;
+	border-top:1px solid gray;
+	border-right:1px solid gray;
+	z-index:100;
+	background-color:white;
+}
+.leftmessage-search input{
+	width:350px;
+	height:30px;
+	margin-top:20px;
+	border-radius:5px 5px 5px 5px;
+	background-image:url(./images/search.png);
+	background-repeat:no-repeat;
+	background-position:330px 7.5px;
+	margin-left:20px;
+	}
+.leftmessage-bottom-main{
+	width:400px;
+	height:100%;
+	position:absolute;
+	top:0px;
+	overflow:hidden;
+	border-left:0px;
+	z-index:10;
+}
+.leftmessage-bottom{
+	overflow-y:scroll;
+	overflow-x:hidden;
+	width:420px;
+	height:100%;
+}
+.leftmessage-bottom1{
+	width:350px;
+	height:130px;
+	margin-top:160px;
+	padding-left:25px;
+	padding-right:25px;
+	border:1px solid gray;
+	border-left:2px solid #3399ff;	
+}
+.leftmessage-bottom2{
+	width:350px;
+	height:130px;
+	margin-top:0px;
+	padding-left:25px;
+	padding-right:25px;
+	border-bottom:1px solid gray;
+}
+.leftmessage-bottom1-top{
+	height:46px;
+	line-height:46px;
+	margin-top:10px;
+	margin-bottom:10px;
+}
+.leftmessage-bottom1-top img{
+	width:46px;
+	height:46px;
+}
+.leftmessage-bottom1-top ul{
+	float:right;
+	display:inline-block;
+	width:250px;
+	margin-right:25px;
+	line-height:20px;	
+}
+.leftmessage-bottom1-top ul span{
+	margin-top:-30px;
+	float:right;
+}
+.leftmessage-bottom1-bottom p{
+	width:270px;
+	height:60px;
+}
+.leftmessage-bottom1-bottom{
+	width:350px;
+}
+.leftmessage-bottom1-bottom .noread{
+	float:right;
+	width:20px;
+	height:20px;
+	color:white;
+	background-color:#3399ff;
+	margin-top:-40px;
+	margin-right:20px;
+	text-align:center;
+	border-radius:90px 90px 90px 90px;
+}
+.rightmessage{
+	height:100%;
+	width:100%;
+}
+.rightmessage-top-txt{
+	margin-top:20px;
+	height:40px;
+	float:right;
+	padding-left:20px;
+	padding-right:60px;
+}
+.rightmessage-top-image{
+	margin-top:20px;
+	float:right;
+}
+.rightmessage-top{
+	border:1px solid white;
+	border-bottom:1px solid gray;	
+	height:79px;
+	position:absolute;
+	top:0px;
+	right:0px;
+	width:100%;
+	z-index:30;
+	background-color:white;
+}
+.rightmessage-bottom-history-bar{
+	height:80px;
+	padding-left:750px;
+	margin-top:80px;
+	padding-right:0px;
+	border-bottom:2px solid gray;
+	z-index:-5;
+}
+.right-user{
+	width:300px;
+	float:left;
+}
+
+.rightmessage-bottom-history-bar span{
+	line-height:80px;
+	margin-left:30px;
+}
+.right-user-icon1{
+	width:120px;
+	position:absolute;
+	top:100px;
+	right:200px;
+	border-right:1px solid gray
+}
+.right-user-icon1 img{
+	width:25px;
+	height:25px;
+	border-radius:8px 8px 8px 8px;
+}
+.right-user-icon2{
+	position:absolute;
+	top:100px;
+	right:20px;
+}
+.right-user-icon2 img{
+	width:25px;
+	height:25px;
+	border-radius:8px 8px 8px 8px;
+}
+.right-user-onetwoeight span{
+	display:inline-block;
+	position:absolute;
+	right:120px;
+	top:80px;
+}
+.rightmessage-bottom-history{
+	width:100%;
+	height:161px;
+	position:absolute;
+	overflow:hidden;
+	z-index:25;
+	background-color:white;
+}
+.rightmessage-bottom-history-txt{
+	padding-left:750px;
+	height:100%;
+	width:115%;
+	overflow-x:hidden;
+	overflow-y:scroll;
+	z-index:20;
+	
+}
+.rightmessage-bottom-history-txt1{
+	margin-top:159px;
+	padding-left:20px;
+	padding-top:20px;
+	border-left:1px solid gray;
+	border-bottom:1px solid gray;
+}
+.rightmessage-bottom-history-txt1 ul{
+	width:600px;
+	margin-left:60px;
+	margin-top:-50px;
+	line-height:30px;
+	margin-bottom:20px;
+}
+.rightmessage-bottom-history-txt2{
+	padding-left:20px;
+	padding-top:20px;
+	border-left:1px solid gray;
+	border-bottom:1px solid gray;
+}
+.rightmessage-bottom-history-txt2 ul{
+	width:600px;
+	margin-left:60px;
+	margin-top:-50px;
+	line-height:30px;
+	margin-bottom:20px;
+}
+.twoimages{
+	margin-left:50px;
+	margin-bottom:10px;
+}
+.lasttext{
+	position:fixed;
+	margin-bottom:20px;
+	bottom:20px;
+	left:770px;
+}
+.plus{
+	width: 55px;
+    height: 56px;
+    border-right: solid 1px #dfe3e9;
+    background-color:white; 
+}
+.plustext{
+	margin-left:-4px;
+	border: solid 1px #dfe3e9;
+	height:55px;
+	width:600px;
+}
+.leftname1{
+	color:#3399ff;
+}
+.leftday{
+	color:gray;
+}
+.rightmessage-bottom-history-maintxt{
+	width:100%;
+	height:100%;
+	position:absolute;
+	top:0px;
+	overflow:hidden;
+}
+</style>
+</head>
+<body>
+<div class="left">
+<div class="left-main">
+<div class="left-top">
+<ul>
+<li><img src="images\icon1.png"></li>
+<li><img src="images\icon2.png"></li>
+<li><img src="images\icon3.png"></li>
+<li><img src="images\icon4.png"></li>
+</ul>
+</div>
+<div class="left-bottom">
+<ul>
+<li><img src="images\sicon3.png"></li>
+<li><img src="images\sicon4.png"></li>
+<ul>
+</div>
+</div>
+</div>
+<div class="menu">
+<div class="menu-main">
+<ul class="MENU">
+<li>
+<span>MENU</span>
+<img class="menuicon1" src="images\sicon3.png"></li>
+</li>
+<li>
+<span>Overview</span> 
+</li>
+<li>
+<span>Sales</span> 
+<a class="radius">54</a>
+</li>
+<li>
+<span>Your Staff</span> 
+</li>
+<li>
+<span>Analytics & Targeting</span> 
+</li>
+<li>
+<span>What’s New </span> 
+</li>
+</ul>
+<p class="line1"></p>
+<ul class="PRODUCTS">
+<li>
+<span class="YOUR-PRODUCTS">YOUR PRODUCTS</span>
+<img class="menuicon2" src="images\sicon3.png"></li>
+</li>
+<li>
+<u><img src="images\video.png"></u>
+<span>Books</span>
+</li>
+<li>
+<u><img src="images\video.png"></u>
+<span>Tutorials</span> 
+</li>
+<li>
+<u><img src="images\video.png"></u>
+<span>Stocks</span> 
+</li>
+<li>
+<u><img src="images\video.png"></u>
+<span>Infographics</span> 
+</li>
+</ul>
+<p class="line2"></p>
+<ul class="DASHBOARD">
+<li>
+<span>DASHBOARD</span>
+<img class="menuicon3" src="images\sicon3.png"></li>
+</li>
+<li>
+<span>Messages</span> 
+</li>
+<li>
+<span>Connections</span> 
+<a class="radius">54</a>
+</li>
+<li>
+<span>Integrations</span> 
+</li>
+<li>
+<span>Account Settings</span> 
+</li>
+</ul>
+<ul class="menubottom">
+<li>
+<span class="Monthly">Monthly Goals</span>
+<span class="Money">$580/$3200</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="leftmessage">
+<div class="leftmessage-top">
+<span>Messages</span>
+</div>
+<div class="leftmessage-search">
+<input type="text" value="search">
+</div>
+<div class="leftmessage-bottom-main">
+<div class="leftmessage-bottom">
+<div class="leftmessage-bottom1">
+<div class="leftmessage-bottom1-top">
+<img src="images\person1.png"> 
+<ul>
+<li>
+<a class="circle"></a>
+<u class="leftname1">Bessie Berry</u>
+</li>
+<li>
+<u class="leftday">Twitter</u>
+</li>
+<span>3M<span>
+</ul>
+</div>
+<div class="leftmessage-bottom1-bottom">
+<p>I pay for the 4Mb/sec down, 512 Kb/sec up service from O2. In fact, it's relatively quick, and stable... </p>
+<u class="noread">4</u>
+</div>
+</div>
+<div class="leftmessage-bottom2">
+<div class="leftmessage-bottom1-top">
+<img src="images\person7.png"> 
+<ul>
+<li>
+<a class="circle"></a>
+<u class="leftname">Victor Weber </u>
+</li>
+<li>
+<u class="leftday">Adobe</u>
+</li>
+<span>8M<span>
+</ul>
+</div>
+<div class="leftmessage-bottom1-bottom">
+<p>I shared this on my fb wall a few months back, and I thought I'd share it here again because it's such a great... </p>
+<u class="nnoread"></u>
+</div>
+</div>
+<div class="leftmessage-bottom2">
+<div class="leftmessage-bottom1-top">
+<img src="images\person2.png"> 
+<ul>
+<li>
+<a class="circle"></a>
+<u class="leftname">Dustin Benson</u>
+</li>
+<li>
+<u class="leftday">Facebook</u>
+</li>
+<span>Yesterday<span>
+</ul>
+</div>
+<div class="leftmessage-bottom1-bottom">
+<p>If there is anyone who needs an invitation please add yourself in the comments of this post!  </p>
+<u class="nnoread"></u>
+</div>
+</div>
+<div class="leftmessage-bottom2">
+<div class="leftmessage-bottom1-top">
+<img src="images\person3.png"> 
+<ul>
+<li>
+<a class="circle"></a>
+<u class="leftname">Jack Mason</u>
+</li>
+<li>
+<u class="leftday">Yahoo</u>
+</li>
+<span>Yesterday<span>
+</ul>
+</div>
+<div class="leftmessage-bottom1-bottom">
+<p>BruteDC is a peer-to-peer movie+tv series sharing and downloading platform which works on intranet inside...  </p>
+<u class="nnoread"></u>
+</div>
+</div>
+<div class="leftmessage-bottom2">
+<div class="leftmessage-bottom1-top">
+<img src="images\person4.png"> 
+<ul>
+<li>
+<a class="circle"></a>
+<u class="leftname">Stephen Shelton </u>
+</li>
+<li>
+<u class="leftday">Snapchat</u>
+</li>
+<span>Stephen Shelton <span>
+</ul>
+</div>
+<div class="leftmessage-bottom1-bottom">
+<p>Yes, p2p traffic is often filtered (QoSed). Although i do use BT on O2 wires, and in good days dl speed...  </p>
+<u class="nnoread"></u>
+</div>
+</div>
+<div class="leftmessage-bottom2">
+<div class="leftmessage-bottom1-top">
+<img src="images\person5.png"> 
+<ul>
+<li>
+<a class="circle"></a>
+<u class="leftname">Sally Willis </u>
+</li>
+<li>
+<u class="leftday">Twitter</u>
+</li>
+<span>12 Jun<span>
+</ul>
+</div>
+<div class="leftmessage-bottom1-bottom">
+<p>Yes, it's O2: 'internet extreme', which is no longer offered.  </p>
+<u class="nnoread"></u>
+</div>
+</div>
+<div class="leftmessage-bottom2">
+<div class="leftmessage-bottom1-top">
+<img src="images\person6.png"> 
+<ul>
+<li>
+<a class="circle"></a>
+<u class="leftname">Robert Patton </u>
+</li>
+<li>
+<u class="leftday">A Team</u>
+</li>
+<span>9 Jun<span>
+</ul>
+</div>
+<div class="leftmessage-bottom1-bottom">
+<p>I change my service from this 4Mb plan to their much </p>
+<u class="n	noread"></u>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="rightmessage">
+<div class="rightmessage-top">
+<div class="rightmessage-top-txt"> 
+<ul>
+<li>
+Jordan J.
+</li>
+<li>
+Administrator
+</li>
+</ul>
+</div>
+<div class="rightmessage-top-image">
+<img src="images\person1.png">
+</div>
+</div>
+<div class="rightmessage-bottom-history">
+<div class="rightmessage-bottom-history-bar">
+<div class="right-user">
+<span>Bessie Berry</span>
+<u class="circlegreen"></u>
+</div>
+<div class="right-user-right">
+<div class="right-user-icon1">
+<img src="images\1.png">
+<img src="images\2.png">
+<img src="images\3.png">
+</div>
+<div class="right-user-onetwoeight">
+<span>1 of 28</span>
+</div>
+<div class="right-user-icon2">
+<img src="images\2.png">
+<img src="images\3.png">
+</div>
+</div>
+</div>
+
+</div>
+<div class="rightmessage-bottom-history-maintxt">
+<div class="rightmessage-bottom-history-txt">
+<div class="rightmessage-bottom-history-txt1">
+<div class="rightmessage-bottom-history1-user">
+<div class="rightmessage-bottom-history1-user-img">
+<img src="images\person1.png">
+</div>
+<ul>
+<li>Bessie Berry 8:31 AM </li>
+<li>Hi guys Ive got the O2 package and have really slow internet. A speed check online said i can get 3mbps but
+ it seems more like 0.5 these days, just freezing and taking ages to open pages and open audio files for example.
+ I have decided to switch to the UPC package which offers 10mbps but do you think i will get it?</li>
+</ul>
+</div>
+</div>
+<div class="rightmessage-bottom-history-txt2">
+<div class="rightmessage-bottom-history1-user">
+<div class="rightmessage-bottom-history1-user-img">
+<img src="images\person1.png">
+</div>
+<ul>
+<li>Bessie Berry 8:31 AM </li>
+<li>Hi guys Ive got the O2 package and have really slow internet. A speed check online said i can get 3mbps but
+ it seems more like 0.5 these days, just freezing and taking ages to open pages and open audio files for example.
+ I have decided to switch to the UPC package which offers 10mbps but do you think i will get it?</li>
+</ul>
+</div>
+</div>
+<div class="rightmessage-bottom-history-txt2">
+<div class="rightmessage-bottom-history1-user">
+<div class="rightmessage-bottom-history1-user-img">
+<img src="images\person1.png">
+</div>
+<ul>
+<li>Bessie Berry 8:31 AM </li>
+<li>Hi guys Ive got the O2 package and have really slow internet. A speed check online said i can get 3mbps but
+ it seems more like 0.5 these days, just freezing and taking ages to open pages and open audio files for example.
+ I have decided to switch to the UPC package which offers 10mbps but do you think i will get it?</li>
+</ul>
+</div>
+<div class="twoimages">
+<img src="images\photo1.png">
+<img src="images\photo2.png">
+</div>
+</div>
+<div class="rightmessage-bottom-history-txt2">
+<div class="rightmessage-bottom-history1-user">
+<div class="rightmessage-bottom-history1-user-img">
+<img src="images\person1.png">
+</div>
+<ul>
+<li>Bessie Berry 8:31 AM </li>
+<li>Hi guys Ive got the O2 package and have really slow internet. A speed check online said i can get 3mbps but
+ it seems more like 0.5 these days, just freezing and taking ages to open pages and open audio files for example.
+ I have decided to switch to the UPC package which offers 10mbps but do you think i will get it?</li>
+</ul>
+</div>
+</div>
+<div class="rightmessage-bottom-history-txt2">
+<div class="rightmessage-bottom-history1-user">
+<div class="rightmessage-bottom-history1-user-img">
+<img src="images\person1.png">
+</div>
+<ul>
+<li>Bessie Berry 8:31 AM </li>
+<li>Hi guys Ive got the O2 package and have really slow internet. A speed check online said i can get 3mbps but
+ it seems more like 0.5 these days, just freezing and taking ages to open pages and open audio files for example.
+ I have decided to switch to the UPC package which offers 10mbps but do you think i will get it?</li>
+</ul>
+<div class="lasttext">
+<button class="plus" value="+"><i>+</i></button>
+<input type="text" class="plustext" value="Well, kinda both :) but more of that second option, i`ve seen many systems infected and crawling with">
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>
