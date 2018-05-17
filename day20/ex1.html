@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+</head>
+<body onkeydown="login()">
+<input id="name" type="text">    
+<button id="submit-btn" onclick="main()">Submit</button>
+<script>
+	function main()
+	{	
+		var str1=document.getElementById('name').value;
+		console.log(str1);
+		console.log("sorry");
+	}
+	function login(){
+				if(event.keyCode==13)
+			{
+				var str2=document.getElementById('name').value;
+				console.log("回车输出成功");
+			}
+			if(event.keyCode==27){
+				document.getElementById('name').value="";
+			}
+	}
+</script>
+</body>
+</html>

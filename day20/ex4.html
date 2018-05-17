@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+</head>
+<body>
+<div id="fade-obj" style="width:300px;height:300px;background:#000"></div>
+<button id="fade-btn">淡出</button>
+<script>
+	var ojb=document.getElementById("fade-obj");
+	var btn=document.getElementById("fade-btn");
+	var j=0;
+	var i=1;
+	function main(){
+		ojb.style.opacity=i;
+		i=i-0.1;
+		var time1=setTimeout(main, 500);
+		if(i<=0){
+			clearTimeout(time1);
+			time1=null;
+			btn.textContent="淡入";
+			btn.removeAttribute("disabled");
+            i=1;
+			btn.onclick=main1; 
+		}
+		if(i>0&&i<1){
+			btn.setAttribute("disabled",true);
+		}
+	}
+	function main1(){
+		ojb.style.opacity=j;
+		j=j+0.1;
+		var time2=setTimeout(main1, 500);
+		if(j>0&&j<1){
+			btn.setAttribute("disabled",true);
+		}else{
+			clearTimeout(time2);
+			time2=null;
+			btn.textContent="淡出";
+			btn.removeAttribute("disabled");
+            j=0;
+			btn.onclick=main;  
+		}
+	}	
+	btn.onclick=main;
+</script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>实现帧动画</title>
+    <style>
+        *{
+            margin: 0;
+        }
+        #animation {
+            width: 480px;
+            height: 480px;
+            background-image: url("./images/erik_ce204002.jpg");
+        }
+    </style>
+</head>
+<body>
+    <section id="animation"></section>
+    <script>
+		var frame=document.getElementById("animation");
+		var index=1;
+		var i=0;
+		function main(){
+            if(index==1) {
+                i=i+480;
+                if(i>=7680) {
+                    index=0;
+                }
+            }
+            if(index==0) {
+                i=i-480;
+                if(i<=0) {
+                    index=1;
+                }
+            }
+            frame.style.backgroundPositionY="-"+i+"px";
+        }
+        var time1=setInterval(main,100);
+    </script>
+</body>
+</html>

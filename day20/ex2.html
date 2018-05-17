@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">    
+    <title>IFE ECMAScript</title>
+    <style>
+        select {
+            display:none
+        }
+    </style>
+</head>
+<body>            
+    <label>
+        <input id="school" name="status" type="radio">
+        School
+    </label>
+    <label>
+        <input id="company" name="status" type="radio">
+        Company
+    </label>
+
+    <select id="school-select">        
+        <option>北京邮电大学</option>
+        <option>黑龙江大学</option>
+        <option>华中科技大学</option>
+    </select>
+
+    <select id="company-select">        
+        <option>百度</option>
+        <option>爱奇艺</option>        
+    </select>
+	<script>
+        /*var school=document.querySelector("#school");
+        var company=document.querySelector("#company");
+        var schoolSelect=document.getElementById("school-select");
+        var companySelect=document.getElementById("company-select");
+        
+        school.onchange=showSchool;
+        company.onchange=showCompany;
+        function showSchool() {
+            schoolSelect.style.display="block";
+            companySelect.style.display="none";
+        }
+
+        function showCompany() {
+            companySelect.style.display="block";
+            schoolSelect.style.display="none";  
+        }*/
+		var school=document.getElementById('school');
+		var schoolSelect=document.getElementById('school-select');
+		var handlers1=function(){
+			schoolSelect.style.display="block";
+			companySelect.style.display="none";
+		};
+		school.addEventListener('click',handlers1,false);
+		var company=document.getElementById('company');
+		var companySelect=document.getElementById('company-select');
+		var handlers2=function(){
+			companySelect.style.display="block";
+			schoolSelect.style.display="none";
+		};
+		company.addEventListener('click',handlers2,false);
+	</script>
+</body>
+</html>
