@@ -1,0 +1,125 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+</head>
+<body>
+<div>
+    <label>Number A:<input id="radio-a" type="radio" name="math-obj" value="a"></label><input id="num-a" type="text">
+    <label>Number B:<input id="radio-b" type="radio" name="math-obj" value="b"></label><input id="num-b" type="text">
+</div>
+<div>
+    <button id="button1">判断当前选中的输入框输入内容是否为数字</button>
+    <button id="button2">把 A 四舍五入为 B 个小数位数的数字</button>
+    <button id="button3">当前选中数字的绝对值</button>
+    <button id="button4">对当前选中的数字进行上舍入</button>
+    <button id="button5">对当前选中的数字进行下舍入</button>
+    <button id="button6">把当前选中的数字四舍五入为最接近的整数</button>
+    <button id="button7">返回 A 和 B 中的最高值</button>
+    <button id="button8">返回 A 和 B 中的最低值</button>        
+</div>
+<p id="result"></p>
+<script>
+var btn1=document.getElementById("button1");
+var btn2=document.getElementById("button2");
+var btn3=document.getElementById("button3");
+var btn4=document.getElementById("button4");
+var btn5=document.getElementById("button5");
+var btn6=document.getElementById("button6");
+var btn6=document.getElementById("button7");
+var btn6=document.getElementById("button8");
+btn1.addEventListener("click",main1);
+btn2.addEventListener("click",main2);
+btn3.addEventListener("click",main3);
+btn4.addEventListener("click",main4);
+btn5.addEventListener("click",main5);
+btn5.addEventListener("click",main6);
+btn5.addEventListener("click",main7);
+btn5.addEventListener("click",main8);
+function main1(){
+	var radioa=document.getElementById("radio-a").checked;
+	var radiob=document.getElementById("radio-b").checked;
+	var numa=document.getElementById("num-a").value;
+	var numb=document.getElementById("num-b").value;
+	if(radioa==true){
+		console.log("Number A的类型是："+typeof(numa));
+	}
+	if(radiob==true){
+		console.log("Number B的类型是："+typeof(numb));
+	}
+}
+function main2(){
+	var numa=parseInt(document.getElementById("num-a").value);
+	var numb=parseInt(document.getElementById("num-b").value);
+	var result= Math.round(numa*Math.pow(10,numb))/Math.pow(10,numb); 
+	console.log(result);
+	
+}
+function main3(){
+	var radioa=document.getElementById("radio-a").checked;
+	var radiob=document.getElementById("radio-b").checked;
+	if(radioa==true){
+	var numa=parseInt(document.getElementById("num-a").value);
+	console.log((Math.abs(numa)));
+	}
+	if(radiob==true){
+	var numb=parseInt(document.getElementById("num-b").value);
+	console.log((Math.abs(numb)));
+	}
+}
+function main4(){
+	var radioa=document.getElementById("radio-a").checked;
+	var radiob=document.getElementById("radio-b").checked;
+	if(radioa==true){
+	var numa=parseFloat(document.getElementById("num-a").value);
+	console.log((Math.ceil(numa)));
+	}
+	if(radiob==true){
+	var numb=parsefloat(document.getElementById("num-b").value);
+	console.log((Math.ceil(numb)));
+	}
+}
+function main5(){
+	var radioa=document.getElementById("radio-a").checked;
+	var radiob=document.getElementById("radio-b").checked;
+	if(radioa==true){
+	var numa=parseFloat(document.getElementById("num-a").value);
+	console.log((Math.floor(numa)));
+	}
+	if(radiob==true){
+	var numb=parsefloat(document.getElementById("num-b").value);
+	console.log((Math.floor(numb)));
+	}
+}
+function main6(){
+	var radioa=document.getElementById("radio-a").checked;
+	var radiob=document.getElementById("radio-b").checked;
+	if(radioa==true){
+	var numa=parseFloat(document.getElementById("num-a").value);
+	console.log((Math.round(numa)));
+	}
+	if(radiob==true){
+	var numb=parsefloat(document.getElementById("num-b").value);
+	console.log((Math.round(numb)));
+	}
+}
+function main7(){
+	var numa=parseFloat(document.getElementById("num-a").value);
+	var numb=parsefloat(document.getElementById("num-b").value);
+	if(numa>numb){
+		console.log(numa);
+	}else{
+		console.log(numb);
+	}
+}
+function main8(){
+	var numa=parseFloat(document.getElementById("num-a").value);
+	var numb=parsefloat(document.getElementById("num-b").value);
+	if(numa>numb){
+		console.log(numb);
+	}else{
+		console.log(numa);
+	}
+}
+</script>
+</body>
+</html>
