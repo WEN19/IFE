@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+</head>
+<body>
+<div id="div1">
+</div>
+</body>
+<script>
+var mydate=new Date();
+var weekday=new Array(7)
+weekday[0]="Sunday"
+weekday[1]="Monday"
+weekday[2]="Tuesday"
+weekday[3]="Wednesday"
+weekday[4]="Thursday"
+weekday[5]="Friday"
+weekday[6]="Saturday"
+var r_year=mydate.getFullYear()+'-';
+var r_month=mydate.getMonth()+1+'-';
+var r_date=mydate.getDate()+'  ';
+var r_weekday=weekday[mydate.getDay()];
+var r_hour=mydate.getHours();
+var r_minute=mydate.getMinutes();
+var r_second=mydate.getSeconds();
+r_minute=checkTime(r_minute);
+r_second=checkTime(r_second);
+var result=r_year+r_month+r_date+"  "+r_weekday+r_hour+":"+r_minute+":"+r_second;
+result=main1(result);
+var para=document.createElement("p");
+var node=document.createTextNode(result);
+para.appendChild(node);
+var element=document.getElementById("div1");
+element.appendChild(para);
+function checkTime(i){
+	if(i<10){
+		i='0'+i;
+		return i;
+	}else{
+		return i;
+	}
+}
+function main1(result){
+	if(r_hour<=12){
+		return result+"  "+'AM';
+	}else{
+		return result+"  "+'PM';
+	}
+}
+</script>
+</html>

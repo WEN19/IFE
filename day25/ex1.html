@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+</head>
+<body>
+<div id="div1">
+</div>
+</body>
+<script>
+var mydate=new Date();
+var weekday=new Array(7)
+weekday[0]="星期日"
+weekday[1]="星期一"
+weekday[2]="星期二"
+weekday[3]="星期三"
+weekday[4]="星期四"
+weekday[5]="星期五"
+weekday[6]="星期六"
+var r_year=mydate.getFullYear()+'年';
+var r_month=mydate.getMonth()+1+'月';
+var r_date=mydate.getDate()+'日';
+var r_weekday=weekday[mydate.getDay()];
+var r_hour=mydate.getHours();
+var r_minute=mydate.getMinutes();
+var r_second=mydate.getSeconds();
+r_minute=checkTime(r_minute);
+r_second=checkTime(r_second);
+var result=r_year+r_month+r_date+r_weekday+r_hour+":"+r_minute+":"+r_second;
+var para=document.createElement("p");
+var node=document.createTextNode(result);
+para.appendChild(node);
+var element=document.getElementById("div1");
+element.appendChild(para);
+function checkTime(i){
+	if(i<10){
+		i='0'+i;
+		return i;
+	}else{
+		return i;
+	}
+}
+</script>
+</html>
