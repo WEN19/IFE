@@ -1,0 +1,241 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<style type="text/css">
+.wrapper{
+  margin:0 200px;
+  padding:20px;
+  border-radius:15px;
+  width:400px;
+  background:#3e5e9b;
+}
+#email-sug-wrapper li,#email-input{
+  width:300px;
+}
+#email-sug-wrapper{
+  position:absolute;
+  display:none;
+  margin:0;
+  padding:0px;
+  border-radius:0 0 5px 5px;
+  list-style:none;
+  background:#eaeaea; 
+}
+#email-sug-wrapper li{
+  padding:10px;
+}
+li.active{
+  background:#ffefaf;
+}
+#email-sug-wrapper li:hover{
+  background:#c1c1ff;
+}
+#email-input{
+  border:0;
+  border-radius:5px 5px 0 0 ;
+  padding:10px;
+  background:#fafafa;
+  color:#999;
+}
+</style>
+</head>
+<body>
+<div class="wrapper">
+    <input id="email-input" type="text">
+    <ul id="email-sug-wrapper" class="email-sug"></ul>
+</div>
+</body>
+<script>
+var postfixList = ['163.com', 'gmail.com', '126.com', 'qq.com', '263.net'];
+var ulList=document.querySelector('#email-sug-wrapper');
+var inputDom=document.querySelector('#email-input');
+var wrap=document.querySelector('.wrapper');
+
+inputDom.focus();
+//keyup:esc,enter,上下左右都会触发,按住某个字母不动只在up时触发一次
+//keypress:esc，上下左右都触发，enter触发，按住不动时出现多少个字母触发多少次
+//keydown:esc,enter,上下左右都会触发,按住不动时出现多少个字母触发多少次
+//oninput:esc,enter,上下左右都不会触发，按住不动时出现多少个字母触发多少次
+inputDom.oninput= function() {
+    addList();
+    hidOrShow();
+    reSet();
+}
+// 监听特殊3个键的键盘事件，这个事件可能就是inputDom的输入监听，也有可能是另外一个，请自己测试后判断
+/*监听特殊3个键的键盘事件 = function() {
+    //找到当前为选中状态的Li
+    //清除掉它的选中状态
+*/
+wrap.onkeyup=function(evt) {
+  var ulLi=ulList.querySelectorAll('li');
+  var mark='';
+  var keyCode=evt.which||evt.keyCode;
+  for(let i=0;i<ulLi.length;i++){
+      if(ulLi[i].className.indexOf('active')!==-1){
+        mark=i;
+      }
+  }
+    if(keyCode===38){
+      ulLi[mark].setAttribute('class','');
+        if(mark!==0){
+            ulLi[mark-1].setAttribute('class','active');//将它的前一个Li设为选中
+          
+        } else {
+         
+           ulLi[ulLi.length-1].setAttribute('class','active'); //将最后一个Li设为选中
+        }
+    }
+    if(keyCode===40) {
+      ulLi[mark].setAttribute('class','');
+        if (mark!==+ulLi.length-1){//找到的Li不是最后一个 
+            ulLi[mark+1].setAttribute('class','active');//将它的下一个Li设为选中
+        } else {
+            ulLi[0].setAttribute('class','active');//将第一个Li设为选中
+        }
+    }
+
+    if (keyCode===13) {
+       inputDom.value=HtmlUtil.htmlDecode(ulLi[mark].innerHTML);//将内容放到input输入框中
+        hiddenUl(); //将找到的Li的HTML内容解码后填到input中
+        //隐藏提示框
+    }
+}
+
+function reSet() {
+  var ulLi=ulList.querySelectorAll('li');
+  var mark='';
+    for(let i=0;i<ulLi.length;i++){
+      if(ulLi[x].className==='active'){
+        mark=x;
+      }
+    }//找到当前为选中状态的Li
+    if (mark!=='0') {
+        ulLi[mark].setAttribute('class','');//清除掉它的选中状态
+        ulLi[0].setAttribute('class','active')//设置第一个Li为选中状态
+    }
+   
+}
+
+
+
+//获取用户输入,拿到input输入框的输入内容trim后返回  
+function getInput() {
+    var trim=inputDom.value;
+    return textSpace(trim);
+}
+
+//检测头尾空格
+function textSpace(text){
+  text=text.replace(/(^\s*)|(\s*$)/g,"");
+  return text;
+}
+//生成提示框中的提示内容
+function tipContent() {
+    var trim=HtmlUtil.htmlEncode(getInput());
+    var first='';
+    var Li=[];
+    var lastLi=[];
+    flag=false;
+    if(trim.indexOf('@')!==-1){
+      first=trim.slice(trim.indexOf('@')+1);
+      trim=trim.slice(0,trim.indexOf('@'));
+    }
+    for(x in postfixList) {       
+      if(postfixList[x].indexOf(first)!==-1){
+      //用来前缀匹配的用户输入内容前缀匹配遍历字符串元素
+          Li[x]=trim+'@'+postfixList[x];
+          flag=true;
+        }
+      lastLi[x]=trim+'@'+postfixList[x];
+ 
+    } 
+    return (flag)?Li:lastLi;
+}
+//将提示内容添加到email-sug-wrapper中,获取生成提示框中的提示内容,将内容添加到email-sug-wrapper中  
+function addList() {
+    ulList.innerHTML='';//删除历史Li内容
+    var List=tipContent();
+    for(x in List){
+        var Li=document.createElement('li');
+       if(x==='0') {
+         Li.setAttribute('class','active');
+       }
+        Li.innerHTML=List[x];
+        ulList.appendChild(Li);
+    }
+}
+//控制email-sug-wrapper的显示/隐藏状态
+function hidOrShow() {
+    if(textSpace(inputDom.value)==='') {
+        hiddenUl();
+    } else {
+        showUl();
+    }
+}
+function hiddenUl() {
+    ulList.style.display='none';
+}
+
+function showUl() {
+    ulList.style.display='block';
+}
+//选取内容
+ulList.onclick = function (e) {
+  var target=e.target;
+    if(target.nodeName.toLowerCase()==='li') {
+        inputDom.value=HtmlUtil.htmlDecode(target.innerHTML);//将内容放到input输入框中
+        hiddenUl();//隐藏输入框
+      inputDom.focus();
+    }
+}
+//转码与解码
+var HtmlUtil = {
+        /*1.用浏览器内部转换器实现html转码*/
+        htmlEncode:function (html){
+            //1.首先动态创建一个容器标签元素，如DIV
+            var temp = document.createElement ("div");
+            //2.然后将要转换的字符串设置为这个元素的innerText(ie支持)或者textContent(火狐，google支持)
+            (temp.textContent != undefined ) ? (temp.textContent = html) : (temp.innerText = html);
+            //3.最后返回这个元素的innerHTML，即得到经过HTML编码转换的字符串了
+            var output = temp.innerHTML;
+            temp = null;
+            return output;
+        },
+        /*2.用浏览器内部转换器实现html解码*/
+        htmlDecode:function (text){
+            //1.首先动态创建一个容器标签元素，如DIV
+            var temp = document.createElement("div");
+            //2.然后将要转换的字符串设置为这个元素的innerHTML(ie，火狐，google都支持)
+            temp.innerHTML = text;
+            //3.最后返回这个元素的innerText(ie支持)或者textContent(火狐，google支持)，即得到经过HTML解码的字符串了。
+            var output = temp.innerText || temp.textContent;
+            temp = null;
+            return output;
+        },
+        /*3.用正则表达式实现html转码*/
+        htmlEncodeByRegExp:function (str){  
+             var s = "";
+             if(str.length == 0) return "";
+             s = str.replace(/&/g,"&amp;");
+             s = s.replace(/</g,"&lt;");
+             s = s.replace(/>/g,"&gt;");
+             s = s.replace(/ /g,"&nbsp;");
+             s = s.replace(/\'/g,"&#39;");
+             s = s.replace(/\"/g,"&quot;");
+             return s;  
+       },
+       /*4.用正则表达式实现html解码*/
+       htmlDecodeByRegExp:function (str){  
+             var s = "";
+             if(str.length == 0) return "";
+             s = str.replace(/&amp;/g,"&");
+             s = s.replace(/&lt;/g,"<");
+             s = s.replace(/&gt;/g,">");
+             s = s.replace(/&nbsp;/g," ");
+             s = s.replace(/&#39;/g,"\'");
+             s = s.replace(/&quot;/g,"\"");
+             return s;  
+       }
+    };
+	</script>
+</html>

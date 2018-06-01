@@ -1,0 +1,187 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<style type="text/css">
+div{
+	position:absolute;
+	top:30%;
+	left:40%;
+}
+ul{
+	padding-left:20px;
+	padding-right:20px;
+	margin-top:1px;
+	border:2px solid #ccc;
+	width:360px;
+	line-height:45px;
+	height:100%;
+	color:gray;
+	overflow:hidden;
+	
+}
+li{
+	list-style-type:none;
+}
+#email-input{
+	font-size:30px;
+	border:2px solid gray;
+	width:400px;
+	height:50px;
+}
+</style>
+</head>
+<body>
+<div class="wrapper">
+    <input id="email-input" type="text">
+    <ul id="email-sug-wrapper" class="email-sug" ></ul>
+</div>
+</body>
+<script>
+window.onload=function(){
+var lis=document.querySelector('#email-sug-wrapper');
+var id1=document.getElementById('email-input');
+var postfixList = ['163.com', 'gmail.com', '126.com', 'qq.com', '163.net'];
+var ul = document.getElementById('email-sug-wrapper');
+var Index=0;
+id1.addEventListener("input",addShowBox);
+id1.addEventListener("keyup",getIndex);
+ul.style.display="none";
+function getInput(){
+	var Input=id1.value;
+	return Input;
+}
+function addShowBox(){
+	lis.innerHTML='';
+	Input=getInput();
+	var ul = document.getElementById('email-sug-wrapper');
+	if((Input.trim())==''){
+		ul.style.display="none";
+	}else if(Input.indexOf("@")==-1){
+	for(x in postfixList){
+		var newli=Input+'@'+postfixList[x];
+		var li = document.createElement("li");
+		li.innerHTML = newli;
+		ul.appendChild(li);
+	}
+	text_Set();
+	reset();
+	}else if(Input.slice(Input.indexOf("@")+1).trim()==""){
+			for(x in postfixList){
+		var newli=Input+postfixList[x];
+		var li = document.createElement("li");
+		li.innerHTML = newli;
+		ul.appendChild(li);
+	}
+	text_Set();
+	reset();
+	}else if(Input.slice(Input.indexOf("@")+1,Input.indexOf("@")+2)=='1'){
+		var newli=Input.slice(0,Input.indexOf("@"))+"@163.com";
+		var li = document.createElement("li");
+		li.innerHTML = newli;
+		ul.appendChild(li);
+		text_Set();
+		reset();
+	}else if(Input.slice(Input.indexOf("@")+1,Input.indexOf("@")+2)=='g'){
+			var newli=Input.slice(0,Input.indexOf("@"))+"@gmail.com";
+		var li = document.createElement("li");
+		li.innerHTML = newli;
+		ul.appendChild(li);
+		text_Set();
+		reset();
+	}else if(Input.slice(Input.indexOf("@")+1,Input.indexOf("@")+2)=='q'){
+		var newli=Input.slice(0,Input.indexOf("@"))+"@qq.com";
+		var li = document.createElement("li");
+		li.innerHTML = newli;
+		ul.appendChild(li);
+		text_Set();
+		reset();
+	}else{
+		ul.style.display="none";
+	}
+}
+function getIndex(e){
+	let li = document.querySelectorAll('li');
+	if(li.length!=0){
+	switch(e.keyCode){
+		case 38:
+		if(Index==0){
+		if(li.length==1){
+			li[0].style.backgroundColor='lightskyblue';
+			break;
+		}
+		li[0].style.backgroundColor="white";
+		li[4].style.backgroundColor='lightskyblue';
+		id1.value=(li[4].innerHTML);
+		Index=4;
+		}
+		else{
+		li[Index].style.backgroundColor='white';
+		li[Index-1].style.backgroundColor='lightskyblue';
+		id1.value=(li[Index-1].innerHTML);
+		Index--;
+		}
+		break;
+		case 40:
+		if(Index!=4){
+				if(li.length==1){
+			li[0].style.backgroundColor='lightskyblue';
+			break;
+		}
+		li[Index].style.backgroundColor='white';
+		li[Index+1].style.backgroundColor='lightskyblue';
+		id1.value=(li[Index+1].innerHTML);
+		Index++;
+		}else{
+		li[Index].style.backgroundColor='white';	
+		li[0].style.backgroundColor='lightskyblue';
+		id1.value=(li[0].innerHTML);
+		Index=0;
+		}
+		break;
+		case 13:
+		id1.value=(li[Index].innerHTML);
+		ul.style.display="none";
+	}
+	}
+	addLi();
+}
+function reset(){
+	Index=0;
+	let li = document.querySelectorAll('li');
+	if(li.length!=0){
+	li[0].style.backgroundColor='#ff9966';
+	}
+}
+function text_Set(){
+	var newInput=new String;
+	newInput=getInput();
+	var ul = document.getElementById('email-sug-wrapper');
+	//var a=newInput.indexOf("@");
+	//if(a!=-1){
+	//ul.style.display="none";
+	//}else{
+	ul.style.display="block";
+	//}
+}
+function addLi(){
+	 var list =  document.getElementsByTagName("li");
+				for(var i = 0;i<list.length;i++){
+                list[i].onclick = function(){
+					list[Index].style.backgroundColor="white";
+                    id1.value=this.innerHTML;
+                    Index=i-1;
+					ul.style.display="none";
+                }
+					list[i].onmouseover = function(){
+					console.log(this.innerHTML);
+					this.style.backgroundColor="lightskyblue"; //为什么不能写成list[i].style.backgroundColor="lightskyblue"
+                }
+					list[i].onmouseleave = function(){
+					console.log(this.innerHTML);
+					this.style.backgroundColor="white";////为什么不能写成list[i].style.backgroundColor="white"
+                }
+}
+}
+}
+</script>
+</html>
