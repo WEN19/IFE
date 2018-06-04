@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<head>
+<style>
+li{
+	list-style-type:none;
+}
+ul{
+	float:left;
+}
+table,tr,td,th{
+	border:1px solid black;
+	border-spacing:0px;
+}
+tr:hover{
+	background-color:lightblue;
+}
+</style>
+</head>
+<html>
+<body>
+<div id="container">
+<div id="region-radio-wrapper">
+<ul>
+<li><input type="checkbox" id="region-all-checkbox" value="全选">全选</li>
+<li><input type="checkbox" value="华北">华东</li>
+<li><input type="checkbox" value="华南">华南</li>
+<li><input type="checkbox" value="华东">华北</li>
+</ul>
+</div>
+<div id="product-radio-wrapper">
+<ul>
+<li><input type="checkbox" id="product-all-checkbox" value="全选">全选</li>
+<li><input type="checkbox" value="手机">手机</li>
+<li><input type="checkbox" value="笔记本">笔记本</li>
+<li><input type="checkbox" value="智能音箱">智能音箱</li>
+</ul>
+</div>
+  <table id="table-wrapper">
+  </table>
+</div>
+</body>
+<script type="text/javascript" src="data.js"></script>
+<script type="text/javascript" src="checkbox.js"></script>
+<script type="text/javascript" src="creatTable.js"></script>
+<script type="text/javascript" src="main.js"></script>
+</html>
